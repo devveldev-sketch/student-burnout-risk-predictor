@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Burnout Risk Predictor</title>
+
+<style>
+body {
+    font-family: 'Segoe UI';
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    margin:0;
+}
+
+.container {
+    width: 600px;
+    margin: 40px auto;
+    background: rgba(255,255,255,0.95);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1 {
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+label {
+    font-weight:600;
+    display:block;
+    margin-bottom:5px;
+}
+
+.desc {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 6px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #e8eef7;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus {
+    border: 2px solid #667eea;
+    background: #f0f5ff;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #667eea;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #5a67d8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎓 Burnout Risk Predictor</h1>
+
+<form action="/predict" method="post">
+
+<div class="input-group">
+<label>Attendance (%)</label>
+<div class="desc">% of classes attended</div>
+<input type="number" name="attendance" min="0" max="100" placeholder="e.g. 75" required>
+</div>
+
+<div class="input-group">
+<label>GPA</label>
+<div class="desc">Academic performance (0–10)</div>
+<input type="number" step="0.01" name="gpa" min="0" max="10" placeholder="e.g. 8.25" required>
+</div>
+
+<div class="input-group">
+<label>Study Hours</label>
+<div class="desc">Daily study time</div>
+<input type="number" step="0.01" name="study_hours" min="0" max="12" placeholder="e.g. 2.50" required>
+</div>
+
+<div class="input-group">
+<label>Sleep Hours</label>
+<div class="desc">Average sleep per day</div>
+<input type="number" step="0.01" name="sleep_hours" min="0" max="12" placeholder="e.g. 7.00" required>
+</div>
+
+<div class="input-group">
+<label>Screen Time</label>
+<div class="desc">Daily device usage</div>
+<input type="number" step="0.01" name="screen_time" min="0" max="12" placeholder="e.g. 5.75" required>
+</div>
+
+<div class="input-group">
+<label>Assignment Delay</label>
+<div class="desc">Delay in days</div>
+<input type="number" name="assignment_delay" min="0" max="10" placeholder="e.g. 3" required>
+</div>
+
+<div class="input-group">
+<label>Participation Score</label>
+<div class="desc">Class participation (1–10)</div>
+<input type="number" name="participation" min="1" max="10" placeholder="e.g. 6" required>
+</div>
+
+<div class="input-group">
+<label>GPA Trend</label>
+<div class="desc">-1 ↓ , 0 → , 1 ↑</div>
+<input type="number" name="gpa_trend" min="-1" max="1" placeholder="-1 / 0 / 1" required>
+</div>
+
+<div class="input-group">
+<label>Attendance Trend</label>
+<div class="desc">-1 ↓ , 0 → , 1 ↑</div>
+<input type="number" name="attendance_trend" min="-1" max="1" placeholder="-1 / 0 / 1" required>
+</div>
+
+<div class="input-group">
+<label>Study Consistency</label>
+<div class="desc">0 = irregular, 1 = consistent</div>
+<input type="number" name="consistency" min="0" max="1" placeholder="0 or 1" required>
+</div>
+
+<button type="submit">Predict</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
